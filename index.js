@@ -79,7 +79,7 @@ const responseHeadersToRemove = ["Accept-Ranges", "Content-Length", "Keep-Alive"
             try {
                 let response;
                 let tryCount = 0;
-                response = await page.goto(url, { timeout: 30000, waitUntil: 'domcontentloaded' });
+                response = await page.goto(url, { timeout: 30000, waitUntil: 'networkidle0' });
                 responseBody = await response.text();
                 responseData = await response.buffer();
                 while (responseBody.includes("challenge-running") && tryCount <= 10) {
