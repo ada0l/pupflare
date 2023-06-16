@@ -11,9 +11,9 @@ To show the browser window, set the environment variable `PUPPETEER_HEADFUL=1`. 
 set the `PUPPETEER_PROXY` environment variable, for example `PUPPETEER_PROXY=localhost:8080`. To specify user data directory, set `PUPPETEER_USERDATADIR=/path/to/dir`.
 
 # Docker
-Available as a Docker image here: https://quay.io/repository/unixfox/pupflare
+Available as a Docker image here: https://hub.docker.com/r/ada0l/pupflare
 
 
 ```
-docker run -d -p 3000:3000 quay.io/unixfox/pupflare
+docker run -d -p 3000:3000 ada0l/pupflare
 ```
