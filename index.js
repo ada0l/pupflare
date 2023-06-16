@@ -79,7 +79,7 @@ const responseHeadersToRemove = ["Accept-Ranges", "Content-Length", "Keep-Alive"
             try {
                 let response;
                 let tryCount = 0;
-                response = await page.goto(url, { timeout: 30000, waitUntil: 'networkidle0' });
+                response = await page.goto(url, { timeout: 30000, waitUntil: 'load' });
                 responseBody = await response.text();
                 responseData = await response.buffer();
                 while (responseBody.includes("challenge-running") && tryCount <= 10) {
@@ -104,8 +104,8 @@ const responseHeadersToRemove = ["Accept-Ranges", "Content-Length", "Keep-Alive"
             }
 
             await page.close();
-            responseHeadersToRemove.forEach(header => delete responseHeaders[header]);
-            Object.keys(responseHeaders).forEach(header => ctx.set(header, jsesc(responseHeaders[header])));
+            //responseHeadersToRemove.forEach(header => delete responseHeaders[header]);
+            //Object.keys(responseHeaders).forEach(header => ctx.set(header, jsesc(responseHeaders[header])));
             ctx.body = responseData;
         }
         else {
